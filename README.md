@@ -477,6 +477,8 @@ IoT 개발자 C#/WinApp 리포지토리 2025
         - 예외클래스를 모르겠다 싶으면 Exception으로 처리
 
         <img src="./image/cs0007.png" width="600">
+        
+        https://github.com/user-attachments/assets/d849ae9a-176f-4e66-adc1-5be4d1469213
 
     3. 컬렉션 - [소스](./day04/Day04Study/SyntaxWinApp02/FrmMain.cs)
         - 배열, 리스트, 딕셔너리, 큐, 스택 등 여러데이터를 저장하고 다루는 구조를 가진 객체를 통칭
