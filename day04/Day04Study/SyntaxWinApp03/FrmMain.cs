@@ -2,7 +2,7 @@ namespace SyntaxWinApp03
 {
     public partial class FrmMain : Form
     {
-        private string filePath = "sample.rtf"; // Rich Text Format(msWord À¯»ç)
+        private string filePath = "sample.rtf"; // Rich Text Format(msWord ìœ ì‚¬)
         public FrmMain()
         {
             InitializeComponent();
@@ -10,11 +10,11 @@ namespace SyntaxWinApp03
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            //string filePath = "sample.txt"; // ÆÄÀÏ ÀúÀå
-            // 3. SaveFileDialog »ç¿ë
+            //string filePath = "sample.txt"; // íŒŒì¼ ì €ì¥
+            // 3. SaveFileDialog ì‚¬ìš©
             DlgSave.FileName = string.Empty;
-            DlgSave.Filter = "RTFÆÄÀÏ (*.rtf)|*.rtf|TxtÆÄÀÏ (*.txt)|*.txt";
-            DlgSave.Title = "¹®¼­ÆÄÀÏ ÀúÀå";
+            DlgSave.Filter = "RTFíŒŒì¼ (*.rtf)|*.rtf|TxtíŒŒì¼ (*.txt)|*.txt";
+            DlgSave.Title = "ë¬¸ì„œíŒŒì¼ ì €ì¥";
 
             if (DlgSave.ShowDialog() == DialogResult.OK)
             {
@@ -28,44 +28,44 @@ namespace SyntaxWinApp03
                     else if (ext == ".txt")
                         RtbNote.SaveFile(fullPath, RichTextBoxStreamType.PlainText);
 
-                    MessageBox.Show("ÆÄÀÏÀÌ ÀúÀåµÇ¾ú½À´Ï´Ù.", "ÆÄÀÏÀúÀå",
+                    MessageBox.Show("íŒŒì¼ì´ ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤.", "íŒŒì¼ì €ì¥",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"ÀúÀå ½ÇÆĞ : {ex.Message}", "ÆÄÀÏÀúÀå",
+                    MessageBox.Show($"ì €ì¥ ì‹¤íŒ¨ : {ex.Message}", "íŒŒì¼ì €ì¥",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
             //try
             //{
-            //    // 1. File ÆÄÀÏ°ü·ÃµÈ ¸Ş¼­µå°¡ Æ÷ÇÔµÈ Å¬·¡½º
-            //    // ÀÏ¹İ TxtÆÄÀÏ ÀúÀå
+            //    // 1. File íŒŒì¼ê´€ë ¨ëœ ë©”ì„œë“œê°€ í¬í•¨ëœ í´ë˜ìŠ¤
+            //    // ì¼ë°˜ TxtíŒŒì¼ ì €ì¥
             //    //File.WriteAllText(filePath, RtbNote.Text);
 
-            //    // 2. Rich Text FormatÀ¸·Î ÀúÀå
+            //    // 2. Rich Text Formatìœ¼ë¡œ ì €ì¥
             //    RtbNote.SaveFile(filePath, RichTextBoxStreamType.RichText);
 
-            //    MessageBox.Show("ÆÄÀÏÀÌ ÀúÀåµÇ¾ú½À´Ï´Ù.", "ÆÄÀÏÀúÀå",
+            //    MessageBox.Show("íŒŒì¼ì´ ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤.", "íŒŒì¼ì €ì¥",
             //        MessageBoxButtons.OK, MessageBoxIcon.Information);
             //}
             //catch (Exception ex)
             //{
-            //    MessageBox.Show($"ÀúÀå ½ÇÆĞ : {ex.Message}", "ÆÄÀÏÀúÀå",
+            //    MessageBox.Show($"ì €ì¥ ì‹¤íŒ¨ : {ex.Message}", "íŒŒì¼ì €ì¥",
             //        MessageBoxButtons.OK, MessageBoxIcon.Error);
             //}
         }
 
         private void BtnLoad_Click(object sender, EventArgs e)
         {
-            //string filePath = "sample.txt"; //ÀĞ¾î¿Ã ÆÄÀÏ
-            // 3. OpenFileDialog »ç¿ë
+            //string filePath = "sample.txt"; //ì½ì–´ì˜¬ íŒŒì¼
+            // 3. OpenFileDialog ì‚¬ìš©
             DlgOpen.FileName = string.Empty; // == "";
-            DlgOpen.Filter = "RTFÆÄÀÏ (*.rtf)|*.rtf|TxtÆÄÀÏ (*.txt)|*.txt";
-            DlgOpen.Title = "¹®¼­ÆÄÀÏ ÀĞ±â";
+            DlgOpen.Filter = "RTFíŒŒì¼ (*.rtf)|*.rtf|TxtíŒŒì¼ (*.txt)|*.txt";
+            DlgOpen.Title = "ë¬¸ì„œíŒŒì¼ ì½ê¸°";
 
-            // ´ÙÀÌ¾ó·Î±×Ã¢ ¿­±â(DialogResult.OK), Ãë¼Ò(DialogResult.Cancel)
+            // ë‹¤ì´ì–¼ë¡œê·¸ì°½ ì—´ê¸°(DialogResult.OK), ì·¨ì†Œ(DialogResult.Cancel)
             if (DlgOpen.ShowDialog() == DialogResult.OK)
             {
                 try
@@ -80,7 +80,7 @@ namespace SyntaxWinApp03
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"ÀĞ±â ½ÇÆĞ : {ex.Message}", "ÆÄÀÏÀĞ±â",
+                    MessageBox.Show($"ì½ê¸° ì‹¤íŒ¨ : {ex.Message}", "íŒŒì¼ì½ê¸°",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -88,22 +88,22 @@ namespace SyntaxWinApp03
             //{
             //    if (File.Exists(filePath))
             //    {
-            //        // 1. ÀÏ¹İ ÅØ½ºÆ® ·Îµå
+            //        // 1. ì¼ë°˜ í…ìŠ¤íŠ¸ ë¡œë“œ
             //        //string content = File.ReadAllText(filePath);
             //        //RtbNote.Text = content;
 
-            //        // 2. Rich Text Format ·Îµå
+            //        // 2. Rich Text Format ë¡œë“œ
             //        RtbNote.LoadFile(filePath, RichTextBoxStreamType.RichText);
             //    }
             //    else
             //    {
-            //        MessageBox.Show("ÆÄÀÏÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù", "ÆÄÀÏÀĞ±â",
+            //        MessageBox.Show("íŒŒì¼ì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤", "íŒŒì¼ì½ê¸°",
             //        MessageBoxButtons.OK, MessageBoxIcon.Error);
             //    }
             //}
             //catch (Exception ex)
             //{
-            //    MessageBox.Show($"ÀĞ±â ½ÇÆĞ : {ex.Message}", "ÆÄÀÏÀĞ±â",
+            //    MessageBox.Show($"ì½ê¸° ì‹¤íŒ¨ : {ex.Message}", "íŒŒì¼ì½ê¸°",
             //        MessageBoxButtons.OK, MessageBoxIcon.Error);
             //}
         }
@@ -127,11 +127,11 @@ namespace SyntaxWinApp03
 
             if (currFont.Bold)
             {
-                newStyle = currFont.Style & ~FontStyle.Bold; // Bold Á¦°Å
+                newStyle = currFont.Style & ~FontStyle.Bold; // Bold ì œê±°
             }
             else
             {
-                newStyle = currFont.Style | FontStyle.Bold; // Bold Ãß°¡
+                newStyle = currFont.Style | FontStyle.Bold; // Bold ì¶”ê°€
             }
 
             RtbNote.SelectionFont = new Font(currFont, newStyle);
