@@ -2,76 +2,81 @@ namespace SyntaxWinApp01
 {
     public partial class FmMain : Form
     {
-        // ´ë¸®ÀÚ(delegate) ¼±¾ğ
+        // ëŒ€ë¦¬ì(delegate) ì„ ì–¸
         delegate void MyDelegate(string msg);
-        // ÀÌº¥Æ®ÇÚµé·¯ ´ë¸®ÀÚ ¼±¾ğ
+        // ì´ë²¤íŠ¸í•¸ë“¤ëŸ¬ ëŒ€ë¦¬ì ì„ ì–¸
         delegate void MyEventHandler(object sender, EventArgs e);
-        // ÀÌº¥Æ®¸¦ ¼±¾ğ
+        // ì´ë²¤íŠ¸ë¥¼ ì„ ì–¸
         public event EventHandler SomethingHappened;
 
-        // ´ë¸®ÀÚ¿¡¼­ È£ÃâÇÒ ¸Ş¼­µå - ´ë¸®ÀÚ¿Í ÆÄ¶ó¹ÌÅÍ°¡ ÀÏÄ¡
+        // ëŒ€ë¦¬ìì—ì„œ í˜¸ì¶œí•  ë©”ì„œë“œ - ëŒ€ë¦¬ìì™€ íŒŒë¼ë¯¸í„°ê°€ ì¼ì¹˜
         void SayHello(string msg)
         {
-            MessageBox.Show($"¾È³ç, {msg}", "¸Ş½ÃÁö",
+            MessageBox.Show($"ì•ˆë…•, {msg}", "ë©”ì‹œì§€",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         void SayGoodbye(string msg)
         {
-            MessageBox.Show($"³»ÀÏºÁ~ {msg}", "¸Ş½ÃÁö",
+            MessageBox.Show($"ë‚´ì¼ë´~ {msg}", "ë©”ì‹œì§€",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public FmMain()
         {
             InitializeComponent();
-            TxtLog.Text += ("1. Æû »ı¼ºÀÚ ½ÇÇà\r\n");
+            TxtLog.Text += ("1. í¼ ìƒì„±ì ì‹¤í–‰\r\n");
         }
 
-        private void FmMain_Load(object sender, EventArgs e) {
-            TxtLog.Text += ("2. Æû·Îµå ÀÌº¥Æ® ½ÇÇà\r\n");
-        } 
-        private void FmMain_Shown(object sender, EventArgs e) {
-            TxtLog.Text += ("4. Æû¼ğ ÀÌº¥Æ® ½ÇÇà\r\n");
+        private void FmMain_Load(object sender, EventArgs e)
+        {
+            TxtLog.Text += ("2. í¼ë¡œë“œ ì´ë²¤íŠ¸ ì‹¤í–‰\r\n");
         }
-        private void FmMain_Activated(object sender, EventArgs e) {
-            TxtLog.Text += ("3. Æû¾×Æ¼º£ÀÌÆ® ÀÌº¥Æ® ½ÇÇà\r\n");
+        private void FmMain_Shown(object sender, EventArgs e)
+        {
+            TxtLog.Text += ("4. í¼ìˆ€ ì´ë²¤íŠ¸ ì‹¤í–‰\r\n");
         }
-        private void FmMain_FormClosing(object sender, FormClosingEventArgs e) {
-            TxtLog.Text += ("5. ÆûÅ¬·ÎÂ¡ ÀÌº¥Æ® ½ÇÇà\r\n");
+        private void FmMain_Activated(object sender, EventArgs e)
+        {
+            TxtLog.Text += ("3. í¼ì•¡í‹°ë² ì´íŠ¸ ì´ë²¤íŠ¸ ì‹¤í–‰\r\n");
         }
-        private void FmMain_FormClosed(object sender, FormClosedEventArgs e) {
-            TxtLog.Text += ("6. ÆûÅ¬·ÎÁîµå ÀÌº¥Æ® ½ÇÇà\r\n");
+        private void FmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            TxtLog.Text += ("5. í¼í´ë¡œì§• ì´ë²¤íŠ¸ ì‹¤í–‰\r\n");
+        }
+        private void FmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            TxtLog.Text += ("6. í¼í´ë¡œì¦ˆë“œ ì´ë²¤íŠ¸ ì‹¤í–‰\r\n");
         }
 
         private void BtnCheck_Click(object sender, EventArgs e)
         {
-            // 1. Á÷Á¢ È£Ãâ
+            // 1. ì§ì ‘ í˜¸ì¶œ
             SayHello("Hugo");
-            SayGoodbye("Hugo"); // ¸Ş¼­µå¸¦ µû·Î È£Ãâ
+            SayGoodbye("Hugo"); // ë©”ì„œë“œë¥¼ ë”°ë¡œ í˜¸ì¶œ
 
-            // 2. ´ë¸®ÀÚ(delegate) È£Ãâ(À©¾Û °³¹ß ÇÙ½É!!)
-            MyDelegate del = SayHello; // ´ë¸®ÀÚ¿¡ È£ÃâÇÒ ¸Ş¼­µå¸¦ ¹­¾îÁÜ
-            del += SayGoodbye; // Ãß°¡µµ °¡´É(´ë¸®ÀÚ Ã¼ÀÎ Ãß°¡)
-            del -= SayHello;  // (´ë¸®ÀÚ Ã¼ÀÎ »èÁ¦)
+            // 2. ëŒ€ë¦¬ì(delegate) í˜¸ì¶œ(ìœˆì•± ê°œë°œ í•µì‹¬!!)
+            MyDelegate del = SayHello; // ëŒ€ë¦¬ìì— í˜¸ì¶œí•  ë©”ì„œë“œë¥¼ ë¬¶ì–´ì¤Œ
+            del += SayGoodbye; // ì¶”ê°€ë„ ê°€ëŠ¥(ëŒ€ë¦¬ì ì²´ì¸ ì¶”ê°€)
+            del -= SayHello;  // (ëŒ€ë¦¬ì ì²´ì¸ ì‚­ì œ)
             del("Ashely");
 
-            // 3. ¹İÈ¯°ª ¾ø´Â ´ë¸®ÀÚ - Action(º¸±â¸¸ ÇÏ¼¼¿ä)
+            // 3. ë°˜í™˜ê°’ ì—†ëŠ” ëŒ€ë¦¬ì - Action(ë³´ê¸°ë§Œ í•˜ì„¸ìš”)
             Action<string> act = SayHello;
             act("Chris");
 
-            // 4. ¹İÈ¯°ª ÀÖ´Â ´ë¸®ÀÚ - Func(º¸±â¸¸ ÇÏ¼¼¿ä)
+            // 4. ë°˜í™˜ê°’ ìˆëŠ” ëŒ€ë¦¬ì - Func(ë³´ê¸°ë§Œ í•˜ì„¸ìš”)
             Func<int, int, int> add = (a, b) => a + b;
             int result = add(7, 8);
             Console.WriteLine(result);
 
-            // ÀÌº¥Æ® ½ÇÇà
+            // ì´ë²¤íŠ¸ ì‹¤í–‰
             if (SomethingHappened != null)
             {
-                SomethingHappened(this, new EventArgs()); // ÀÌº¥Æ® ½ÇÇà
+                SomethingHappened(this, new EventArgs()); // ì´ë²¤íŠ¸ ì‹¤í–‰
             }
         }
 
-       
+
     }
 }

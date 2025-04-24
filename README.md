@@ -478,7 +478,7 @@ IoT 개발자 C#/WinApp 리포지토리 2025
 
         <img src="./image/cs0007.png" width="600">
         
-        https://github.com/user-attachments/assets/d849ae9a-176f-4e66-adc1-5be4d1469213
+        https://github.com/user-attachments/assets/2aafb574-aebb-4703-94b1-dde4c8f4228b
 
     3. 컬렉션 - [소스](./day04/Day04Study/SyntaxWinApp02/FrmMain.cs)
         - 배열, 리스트, 딕셔너리, 큐, 스택 등 여러데이터를 저장하고 다루는 구조를 가진 객체를 통칭
@@ -497,14 +497,169 @@ IoT 개발자 C#/WinApp 리포지토리 2025
 
 ## 5일차
 
+### 윈앱 컨트롤 4
+- `StatusStrip` : 상태표시줄 컨트롤. 서브 컨트롤 추가 가능
+    - 이름은 거의 변경 안함. 서브 컨트롤 이름을 변경
+    - `StatusLabel` : 글자만 표시, Lbl~ 로 사용
+    - `ProgressBar` : 진행바 표시, Prg~ 이름 시작
+    - `DropDownButton` : 드롭다운버튼, 이벤트 추가
+    - `SplitButton` : 버튼, 이벤트 추가
+    - SizingGrip : 오른쪽 하단의 사이즈조절 아이콘 표시
+
+### VS 사용팁
+- 소스코드 들여쓰기 문제가 발생하면 > 편집 > 고급 > 문서서식 클릭
+
 ### C# 문법
 - 기본 문법
-    1. 델리게이트, 이벤트
-    2. 람다식
-    3. LINQ
-    4. 비동기, 스레드
-    5. 속성
-    6. 제네릭
+    1. 델리게이트(대리자), 이벤트 - [소스](./day05/Day05Study/SyntaxWinApp01/FmMain.cs)
+        - **대리자** : 메서드를 변수처럼 저장하고 호출할 수 있는 타입
+            - C++/Java 함수포인터, 파이썬 콜백함수
+        - 대리자는 실행할 메서드를 들고 있고, 대리자를 호출하면 대리자가 메서드를 대신 호출
+        - 대리자는 호출할 메서드와 파라미터가 일치해야 함
+        - 윈폼에서 버튼을 클릭하면, 직접 메서드를 호출하는게 아니고, C#이 사용자의 움직임을 체크하고 있다가 클릭`이벤트가 발생하면 그에 해당하는 메서드를 대신 실행(호출)`시켜주는 것
+
+        - 대리자의 장점
+            - 메서드를 변수처럼 저장
+            - 런타임 시 메서드를 바꿀 수 있음
+            - 하나의 대리자가 여러개의 메서드를 호출할 수 있음
+        
+        - Action, Func, Predicate 
+            - 대리자 생략형
+
+        - **이벤트** : 대리자의 특별한 형태. 어떤 일이 발생하면 연결된 메서드를 호출하는 것, PyQt의 `시그널`과 동일
+            - 윈앱 버튼클릭, 마우스드래그, 타이머종료
+            - 모바일, 윈앱, 웹앱 개발 모두 이벤트 덩어리 집합
+
+        - 메서드 -> 대리자 -> 이벤트 -> 사용자가 연결해서 동작시킴
+        - delegate : 메서드를 저장하고 실행하는 타입
+        - event : delegate에게 '무슨일 발생하면 실행해!'라고 해주는 역할
+        - +=, -= : 이벤트 구독(이벤트핸들러 연결), 이벤트 구독 해제
+
+        - 자주 쓰이는 이벤트
+            - Form_Load - 아래에 설명
+            - Button_Click - 생략
+            - TextBox_KeyPress - 생략
+            - ComboBox_SelectedIndexChanged - 생략
+
+        - Form 오픈 이벤트 및 생성자
+            1. FrmMain 생성자 : 클래스 생성자
+                - InitializeComponent() 객체(컨트롤)변수 초기화
+            2. `FrmMain_Load` 이벤트 : 폼이 로드(메모리 업)될때 처리할 내용
+                - 생성자 이외에 초기화 할 것 
+                - 폼 오픈시 이벤트 중에서 가장 중요!!!
+            3. FrmMain_Activated 이벤트 : 폼이 활성화(바탕화면 가장 위에서 동작하는 상태) 될때 처리될 이벤트
+            4. FrmMain_Shown 이벤트 : 폼이 바탕화면에 그려질때 이벤트
+                - 잘 안씀
+
+
+        - Form 클로즈 이벤트
+            1. FrmMain_FormClosing 이벤트 : 폼이 닫히는 도중 이벤트
+            2. FrmMain_FormClosed 이벤트 : 폼이 완전히 닫힌 뒤 이벤트
+
+        - 실제 실무에서는 
+            - FrmMain() 생성자, FrmMain_Load(), FrmMain_FormClosing() 으로 대부분 작업
+
+    <img src="./image/cs0011.png" width="600">
+
+- 고급 문법
+    1. 람다식 - C# 3.0부터 도입 - [소스](./day05/Day05Study/SyntaxWinApp02/FrmMain.cs)
+        - 간단한 메서드를 한 줄로 표현하는 문법
+        - 코드를 간결하게 작성하고 싶을 때 사용
+
+    2. LINQ - C# 3.0부터 도입
+        - Language Integrated Query : 언어에 통합된 쿼리
+        - Database 학습 SQL과 유사
+        - 데이터를 SQL처럼 Query 할 수 있는 문법
+
+    3. 속성 - Property
+        - 객체지향 클래스에서 멤버변수(명사) 중 public 변수
+        - 첫번째 글자 대문자
+        - { get; set; } 형태로 구성
+        - 일반 클래스(멤버변수) : 객체 데이터 저장, 상태 표현
+            - 코드로만 작성
+        - UI 클래스(속성) : UI 상태나 외형, 기능 컨트롤
+            - 폼 디자인, 코드 둘 다 사용
+        - Form.Designer.cs 내용은 폼 디자인에서 마우스나 디자인 설정에 변경하는 값으로 되도록이면 수정하지 말 것
+        - Form_Load 이벤트에 코딩으로 초기화
+
+    4. partial 클래스 : C#에만 존재
+        - 나누어진 같은 이름의 클래스를 컴파일시 하나로 합쳐주는 기능
+        - 디자인에 관련된 소스코드는 *.Designer.cs로 분리
+        - 기능에 필요한 소스코드만 *.cs로 분리
+
+        ```cs
+        // 1. FrmMain.cs
+        public partial class FrmMain : Form
+        {  
+
+        // 2. FrmMain.Designer.cs
+        partial class FrmMain
+        {      
+
+        // 3. FrmMain.resx 특이케이스  
+        ```
+
+    5. 제네릭 : Generic
+        - 파이썬에는 필요없음 -> 타입지정이 자유로움
+        - Java, C# 등의 엄격한 데이터타입 객체지향언어에 반드시 필요
+
+        - 제네릭 메서드
+        - 제네릭이 없으면,
+        - 실제, Console.cs의 WriteLine()이 증거
+
+        ```cs
+        public void PrintInt(int data) { Console.WriteLine(data); }
+        public void PrintString(string data) { Console.WriteLine(data); }
+        public void PrintFloat(float data) { Console.WriteLine(data); }
+        ```
+
+        - 제네릭이 있으면,
+
+        ```cs
+        public void Print<T>(T data) { Console.WriteLine(data); }
+        ```
+        - 위 3개의 메서드를 아래의 하나의 메서드로 퉁칠 수 있음
+        - 대문자 T는 아무거나 사용해도 무방. 대문자 한글자를 선호
+
+        - 제네릭 클래스 
+        - where T : class -> 참조형식(클래스)만 허용
+        - where T : struct -> 값형식(기본 타입)만 허용
+        - where T : new() -> 매개변수 없는 생성자 필요
+        - where T : BaseClass -> 특정 클래스, 인터페이스 상속 필수
+
+        <img src="./image/cs0012.png" width="600">
+
+    6. 비동기, 스레드 - [소스](./day05/Day05Study/SyntaxWinApp03/FrmMain.cs)
+        - UI 프로그램에 `응답없음` 발생
+        - 멀티프로세스 - 한꺼번에 여러개의 프로세스를 실행
+        - 스레드 - 프로세스에서 여러일을 한꺼번에 수행하기 위해 분리한 업무단위
+        - 멀티스레드 - 한 프로세스에서 여러 스레드 동작하는 것
+        - 응답없이 발생하면 프로그램의 신뢰도가 떨어짐
+        - 윈앱 - 싱글 스레드(UI가 스레드를 제어)
+        - 콘솔에는 실시간 출력, 텍스트박스, 프로그레스바 등 컨트롤 표시가 실시간으로 안됨
+        
+        - 첫번째 해결방법
+            - Application.DoEvents() 메서드 추가. 권장X
+        - `두번째` 해결방법
+            - 비동기 async, await 키워드로 해결
+            - 응답없음은 나타나지 않음. 진행바 처리
+        - 세번째 해결방법
+            - 전통적인 스레드 사용. 권장X
+        - `네번째` 해결방법
+            - BackgroundWorker 클래스 사용 - 내일 처리
+
+        <img src="./image/cs0013.png" width="600">
+
+## 5일차
+
+### C# 마지막
+- C# 고급
+    1. 비동기, 스레드
+        - BackgroundWorker 클래스 사용
+
+### WinForms 추가
+- 추가 내용
+    - Form_Load 이벤트
 
 ## 6일차
 

@@ -9,109 +9,109 @@ namespace SyntaxWinApp02
 
         int add(int x, int y)
         {
-            return x + y; // ÇÑÁÙÂ¥¸®
+            return x + y; // í•œì¤„ì§œë¦¬
         }
 
         private void BtnCheck_Click(object sender, EventArgs e)
         {
             int result = add(10, 5);
 
-            // ´ë¸®ÀÚ = ¶÷´Ù½Ä
+            // ëŒ€ë¦¬ì = ëŒë‹¤ì‹
             Func<int, int, int> add2 = (x, y) => x + y;
             TxtLog.Text += result + "\r\n";
             TxtLog.Text += add2(10, 6) + "\r\n";
 
-            // SayHello ÇÔ¼ö »ı¼º´ë½Å
-            Action<string> sayHello = name => MessageBox.Show($"¾È³ç, {name}", "ÀÎ»ç",
+            // SayHello í•¨ìˆ˜ ìƒì„±ëŒ€ì‹ 
+            Action<string> sayHello = name => MessageBox.Show($"ì•ˆë…•, {name}", "ì¸ì‚¬",
                                               MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            sayHello("À¯°í");
+            sayHello("ìœ ê³ ");
 
-            // LINQ »ç¿ë ÀÌÀü
+            // LINQ ì‚¬ìš© ì´ì „
             List<int> resList = new List<int>();
             List<int> numbers = [4, 10, 1, 5, 9, 8, 6, 2, 3, 7];
             List<string> words = ["Hello", "World"];
 
-            // Â¦¼ö¸¸ ÃßÃâÇØ¼­ ¿À¸§Â÷¼ø Á¤·Ä ÇÏ´Â ·ÎÁ÷
+            // ì§ìˆ˜ë§Œ ì¶”ì¶œí•´ì„œ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬ í•˜ëŠ” ë¡œì§
             foreach (int n in numbers)
             {
-                if (n % 2 == 0)  // 2·Î ³ª´²¼­ ³ª¸ÓÁö 0ÀÌ¸é Â¦¼ö
+                if (n % 2 == 0)  // 2ë¡œ ë‚˜ëˆ ì„œ ë‚˜ë¨¸ì§€ 0ì´ë©´ ì§ìˆ˜
                 {
                     resList.Add(n);
                 }
             }
 
-            TxtLog.Text += "ÀüÅë Â¦¼ö¸®½ºÆ® > " + string.Join(" ", resList) + "\r\n";
+            TxtLog.Text += "ì „í†µ ì§ìˆ˜ë¦¬ìŠ¤íŠ¸ > " + string.Join(" ", resList) + "\r\n";
             resList.Sort();
-            TxtLog.Text += "ÀüÅë Á¤·Ä¸®½ºÆ® > " + string.Join(" ", resList) + "\r\n";
+            TxtLog.Text += "ì „í†µ ì •ë ¬ë¦¬ìŠ¤íŠ¸ > " + string.Join(" ", resList) + "\r\n";
 
-            // ±âº» LINQ ¹æ½Ä > 3ÁÙ·Î À§ÀÇ ÀüÅë¹æ½ÄÀ» Ã³¸®            
+            // ê¸°ë³¸ LINQ ë°©ì‹ > 3ì¤„ë¡œ ìœ„ì˜ ì „í†µë°©ì‹ì„ ì²˜ë¦¬            
             numbers = [14, 20, 11, 15, 18, 19, 16, 13, 12, 17];
             var resList2 = from n in numbers
                            where n % 2 == 0
                            orderby n
                            select n;
-            TxtLog.Text += "¸µÅ¥1 Á¤·Ä¸®½ºÆ® > " + string.Join(" ", resList2) + "\r\n";
+            TxtLog.Text += "ë§í1 ì •ë ¬ë¦¬ìŠ¤íŠ¸ > " + string.Join(" ", resList2) + "\r\n";
 
             // LINQ Method Chaining
             numbers = [24, 30, 21, 25, 28, 29, 26, 23, 22, 27];
             var resList3 = numbers.Where(n => n % 2 == 0).OrderBy(n => n);
-            TxtLog.Text += "¸µÅ¥2 Á¤·Ä¸®½ºÆ® > " + string.Join(" ", resList3) + "\r\n";
+            TxtLog.Text += "ë§í2 ì •ë ¬ë¦¬ìŠ¤íŠ¸ > " + string.Join(" ", resList3) + "\r\n";
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            // UI ÃÊ±âÈ­
-            TxtTest.PlaceholderText = "Å×½ºÆ®ÀÔ´Ï´Ù";
+            // UI ì´ˆê¸°í™”
+            TxtTest.PlaceholderText = "í…ŒìŠ¤íŠ¸ì…ë‹ˆë‹¤";
             TxtTest.Size = new Size(200, 23);
-            TxtTest.KeyPress += TxtTest_KeyPress; // Designer¿¡¼­ ÀÛ¾÷ÇÏ´Â °Í°ú µ¿ÀÏ
-            TxtTest.Font = new Font("ÈŞ¸Õ¸ÅÁ÷Ã¼", 12, FontStyle.Italic);
+            TxtTest.KeyPress += TxtTest_KeyPress; // Designerì—ì„œ ì‘ì—…í•˜ëŠ” ê²ƒê³¼ ë™ì¼
+            TxtTest.Font = new Font("íœ´ë¨¼ë§¤ì§ì²´", 12, FontStyle.Italic);
         }
 
         private void TxtTest_KeyPress(object? sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter) // == 13°ú µ¿ÀÏ
+            if (e.KeyChar == (char)Keys.Enter) // == 13ê³¼ ë™ì¼
             {
-                MessageBox.Show("¿£ÅÍ¸¦ Å¬¸¯Çß½À´Ï´Ù.", "Å°ÇÁ·¹½º",
+                MessageBox.Show("ì—”í„°ë¥¼ í´ë¦­í–ˆìŠµë‹ˆë‹¤.", "í‚¤í”„ë ˆìŠ¤",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         private void BtnGeneric_Click(object sender, EventArgs e)
         {
-            // ±âº»
+            // ê¸°ë³¸
             Print<int>(100);
             Print<float>(3.141592f);
-            Print<string>("¾È³ç, À¯°í!");
+            Print<string>("ì•ˆë…•, ìœ ê³ !");
             Print<bool>(false);
 
-            // »ı·«°¡´É - ÆíÀÇ¼ºÀ» À§ÇØ¼­
+            // ìƒëµê°€ëŠ¥ - í¸ì˜ì„±ì„ ìœ„í•´ì„œ
             Print(200);
             Print(6.141592f);
-            Print("Àß°¡, À¯°í!");
+            Print("ì˜ê°€, ìœ ê³ !");
             Print(true);
 
-            // Á¦³×¸¯ Å¬·¡½º »ç¿ë
+            // ì œë„¤ë¦­ í´ë˜ìŠ¤ ì‚¬ìš©
             Box<int> intBox = new Box<int>();
             intBox.Value = 300;
             intBox.Show();
 
             Box<string> strBox = new Box<string>();
-            strBox.Value = "¾Ö½¶¸®";
+            strBox.Value = "ì• ìŠë¦¬";
             strBox.Show();
         }
 
         public void Print<T>(T data) { Console.WriteLine(data); }
     }
 
-    // Á¦³×¸¯ Å¬·¡½º
+    // ì œë„¤ë¦­ í´ë˜ìŠ¤
     public class Box<T> // where T : struct
     {
-        public T Value { get; set; }  // ¼Ó¼º
-        // private T value; // ¸â¹öº¯¼ö
+        public T Value { get; set; }  // ì†ì„±
+        // private T value; // ë©¤ë²„ë³€ìˆ˜
 
         public void Show()
         {
-            MessageBox.Show($"BoxÀÇ °ª : {Value}", "Box°ª",
+            MessageBox.Show($"Boxì˜ ê°’ : {Value}", "Boxê°’",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }

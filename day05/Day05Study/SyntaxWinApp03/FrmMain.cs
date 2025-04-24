@@ -7,13 +7,13 @@ namespace SyntaxWinApp03
             InitializeComponent();
         }
 
-        // async ºñµ¿±â·Î µ¿ÀÛÇÏ´Â ¸Ş¼­µå¶ó°í ¼±¾ğ
-        // async, await´Â Ç×»ó °°ÀÌ »ç¿ë
+        // async ë¹„ë™ê¸°ë¡œ ë™ì‘í•˜ëŠ” ë©”ì„œë“œë¼ê³  ì„ ì–¸
+        // async, awaitëŠ” í•­ìƒ ê°™ì´ ì‚¬ìš©
         private async void BtnStart_Click(object sender, EventArgs e)
         {
-            // * : UI½º·¹µå°¡ °ü¸®
-            LblCurrState.Text = "ÇöÀç»óÅÂ : ÁøÇà"; // *
-            BtnStart.Text = "ÁøÇàÁß";              // *
+            // * : UIìŠ¤ë ˆë“œê°€ ê´€ë¦¬
+            LblCurrState.Text = "í˜„ì¬ìƒíƒœ : ì§„í–‰"; // *
+            BtnStart.Text = "ì§„í–‰ì¤‘";              // *
             BtnStart.Enabled = false;              // *
 
             long MaxVal = 200;
@@ -21,7 +21,7 @@ namespace SyntaxWinApp03
             PrgProcess.Minimum = 0;                 // *
             PrgProcess.Maximum = 100;               // *
 
-            // await·Î ºñµ¿±â ´ë±â
+            // awaitë¡œ ë¹„ë™ê¸° ëŒ€ê¸°
             await Task.Run(() =>
             {
                 for (int i = 0; i < MaxVal; i++)
@@ -30,24 +30,24 @@ namespace SyntaxWinApp03
 
                     int progress = (int)((i * 100) / MaxVal) + 1;
                     Console.WriteLine(progress.ToString());
-                    // Task.Run ³» µé¾î°¡´Â UIÃ³¸® ·ÎÁ÷Àº
+                    // Task.Run ë‚´ ë“¤ì–´ê°€ëŠ” UIì²˜ë¦¬ ë¡œì§ì€
                     this.Invoke(new Action(() =>
                     {
                         TxtLog.Text += i.ToString() + "\r\n";
                         TxtLog.SelectionStart = TxtLog.Text.Length;
-                        TxtLog.ScrollToCaret();  // ½ºÅ©·ÑÀ» Á¦ÀÏ ¹ØÀ¸·Î
+                        TxtLog.ScrollToCaret();  // ìŠ¤í¬ë¡¤ì„ ì œì¼ ë°‘ìœ¼ë¡œ
                         PrgProcess.Value = progress;        // *
                         // PrgProcess2.Value = progress;
                     }));
 
                     Thread.Sleep(50);
-                    // Application.DoEvents(); // ³ë ±ÇÀå
+                    // Application.DoEvents(); // ë…¸ ê¶Œì¥
                 }
             });
 
 
-            LblCurrState.Text = "ÇöÀç»óÅÂ : ÁßÁö"; // *
-            BtnStart.Text = "½ÃÀÛ";                // *
+            LblCurrState.Text = "í˜„ì¬ìƒíƒœ : ì¤‘ì§€"; // *
+            BtnStart.Text = "ì‹œì‘";                // *
             BtnStart.Enabled = true;               // *
         }
     }
