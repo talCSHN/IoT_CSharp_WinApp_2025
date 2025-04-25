@@ -640,32 +640,129 @@ IoT 개발자 C#/WinApp 리포지토리 2025
         
         - 첫번째 해결방법
             - Application.DoEvents() 메서드 추가. 권장X
-        - `두번째` 해결방법
+        - 두번째 해결방법
+            - 전통적인 스레드 사용. 권장하지만 난이도 상
+        - `세번째` 해결방법
             - 비동기 async, await 키워드로 해결
-            - 응답없음은 나타나지 않음. 진행바 처리
-        - 세번째 해결방법
-            - 전통적인 스레드 사용. 권장X
+            - 응답없음은 나타나지 않음. 진행바 처리        
+            - 로직복잡해도 소스코드는 간결
         - `네번째` 해결방법
             - BackgroundWorker 클래스 사용 - 내일 처리
+            - 최하 난이도
+            - 이벤트 종류가 많아서 소스코드는 길이가 김
 
         <img src="./image/cs0013.png" width="600">
 
-## 5일차
+## 6일차
+
+### 윈앱 컨트롤 5
+- `BackgroundWorker` : 화면 뒷단에서 작업할 일중 스레드 처리가 되어야할 부분을 손쉽게 동작시켜주는  컨트롤(화면표시X)
+    - Bgw~ 이름을 사용
+    - 일반 속성은 잘 사용안함. 이벤트 3가지는 모두 사용
+    - `DoWork` : 백그라운드(스레드) 작업 
+    - `ProgressChanged` : UI상 변화를 처리 작업
+    - `RunWorkerCompleted` : 작업완료시 대부분 UI완료 처리
+
+- `CheckBox` : 여러개에서 다수를 선택할 수 있는 컨트롤(라디오버튼과 동작이 반대)
+    - Chk~로 이름 사용
+    - Checked : 선택 여부
+    - CheckState :
+        - Unchecked : 체크를 안한 상태
+        - Checked : 체크한 상태
+        - Intermediate : 모호한 상태(하위 체크가 일부는 체크, 일부는 체크안됐을때)
+    - CheckedChanged : 기본이벤트, 체크상태가 변경되면 발생
+
+- `TrackBar` : 사운드, 화면밝기등 최소, 최대를 스크롤로 조정하는 컨트롤
+    - Trb~ 이름 사용
+    - Minimum, Maximum : ProgressBar와 동일
+    - TickFrequenccy : 간격표시 줄 간격
+    - Scroll : 기본이벤트. 가로로 스크롤 이동시 발생하는 이벤트
+
+- `TreeView` : 탐색기 하드디스크, 폴더 나타내는 부분과 동일한 컨트롤
+    - Trv~ 
+    - ImageList : 아이콘 이미지 설정
+    - AfterSelect, AfterExpand, AfterCollapse 이벤트를 주로 사용
+
+- `ListView` : 탐색기 오른쪽 목록을 표시하는 사용하는 컨트롤
+    - Lsv~
+    - View : LargeIcon, SmallIcon, List, Detail 등 탐색기 보기 기능과 동일
+    - SmallImageList, LargeImageList로 아이콘 이미지 설정
+    - SelectedIndexChanged : 아이템 선택이 변경될때 이벤트 발생
+
+- `MonthCalendar` : 스케줄 등록을 위한 컨트롤
+    - Cal~ 로 이름 사용
+    - FirstDayOfWeek : 한주 시작일을 설정. default는 일요일 부터
+    - DateChanged : 기본 이벤트, 날짜 변경시 발생       
+
+- `DateTimePicker` : 단순 일자 선택하는 컨트롤
+    - Dtp~ 로 이름 사용
+    - 속성, 이벤트 거의 사용안함
+
+- `LinkLabel` : 링크 클릭 컨트롤
+    - 기존 Label 컨트롤과 유사
+    - LinkClicked : 버튼과 같이 클릭하는 이벤트
+
+- `MenuStrip` : 프로그램 메뉴관리
+    - Mnu~ 이름시작. 사용하는 메뉴는 반드시 이름을 변경할 것 (예: 끝내기XMenustrip)와 같이 이름이 생성
+    - 메뉴 이름 작성시 (&X)와 같이 사용하면 영문자아래 밑줄 표시
+    - Click : 해당메뉴 클릭 이벤트
+
+- `ToolTip` : 각 컨트롤에 툴팁아이콘 표시 컨트롤
+    - 툴팁컨트롤 하나로 모든 컨트롤 툴팁 관리 가능
+    - Form_Load에서 작성.
+
+### C# 문법
+- C# 기본
+    - enum : 열거형, 필요한 목록의 수로된 키값을 문자로 변경해서 사용하는 구조체
+        - 이진 &(And), |(Or) 연산으로 처리할때 효과적
+
+        ```cs
+        public enum FontStyle
+        {
+            Regular = 0,   // 일반 글씨.   0000
+            Bold = 1,   // 굵은체,      0001
+            Italic = 2, // 이탤릭,    0010
+            Underline = 4, // 밑줄, 0100
+            Strikeout = 8, // 취소선, 1000
+        }
+        ```
+
+    - 모달창, 모달리스창 : 창위에 다른 창을 띄울때 접근권한 제어 형태
+        - Modal : 부모창과 연관된 작업을 할때 사용. 모달창이 닫히지 않으면 부모창을 제어할 수 없음
+        - Modaless : 부모창과 상관없이 동작. 메인창을 언제나 닫을 수 있고, 메인창은 받으면 모두 종료. 사용시 주의
+        - 메시지박스 : 기본적으로 모달창으로 동작
+
 
 ### C# 마지막
 - C# 고급
-    1. 비동기, 스레드
+    1. 비동기, 스레드 - [소스](./day06/Day06Study/SynstaxWinApp01/FrmMain.cs)
         - BackgroundWorker 클래스 사용
+        - .NET에 특화된 스레드사용 클래스
+        - 전통적인 스레드를 쉽게 쓸 수 있게 변형
+        - this.Invoke, async, await, Task등 사용할 필요없음
+        - 취소 기능을 추가할 수 있음
+        - 복잡한 비동기 작업이 많으면 Task 기반을 사용 권장      
 
-### WinForms 추가
-- 추가 내용
-    - Form_Load 이벤트
+### WinForms 응용
+- 윈앱 응용개발
+    - UI 컨트롤 예제 - [소스](./day06/Day06Study/WinControlsApp/FrmMain.cs)
 
-## 6일차
+    <img src=".//image/cs0014.png" width="800">
+
+## 7일차(04.28)
 
 ### C# 응용 - WPF
-- WPF 기본
+- WPF 기본 
 
+## 8일차
+
+### C# 응용 - WPF
+- WPF 기본 
+
+## 9일차
+
+### C# 응용 - WPF
+- WPF 기본 
 
 ## 10일차
 
