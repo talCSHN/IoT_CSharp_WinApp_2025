@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ch03_Array", "Ch03_Array\Ch
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormPractice", "WinFormPractice\WinFormPractice.csproj", "{B5D0D30F-6EC4-4E2D-B734-0EDA3C2479CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ch03_Control_Statement", "Ch03_Control_Statement\Ch03_Control_Statement.csproj", "{74B24779-73D8-4C8D-9363-D708DE337C4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ch04_OOP_Class", "ch04_OOP_Class\ch04_OOP_Class.csproj", "{3C71C4F2-FD54-482A-BB7A-1EE0513E827E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{B5D0D30F-6EC4-4E2D-B734-0EDA3C2479CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5D0D30F-6EC4-4E2D-B734-0EDA3C2479CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5D0D30F-6EC4-4E2D-B734-0EDA3C2479CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74B24779-73D8-4C8D-9363-D708DE337C4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74B24779-73D8-4C8D-9363-D708DE337C4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74B24779-73D8-4C8D-9363-D708DE337C4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74B24779-73D8-4C8D-9363-D708DE337C4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C71C4F2-FD54-482A-BB7A-1EE0513E827E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C71C4F2-FD54-482A-BB7A-1EE0513E827E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C71C4F2-FD54-482A-BB7A-1EE0513E827E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C71C4F2-FD54-482A-BB7A-1EE0513E827E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
