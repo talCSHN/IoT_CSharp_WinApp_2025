@@ -1,0 +1,63 @@
+﻿<Window x:Class="WpfStudyApp02.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfStudyApp02"
+        mc:Ignorable="d"
+        Title="첫번째 WPF앱" Height="350" Width="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <!-- 그리드 정의 영역 끝 -->
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
+            <TextBox x:Name="TxtTest" Text="샘플입니다" />
+            <TextBlock Text="라벨과 동일한 기능, Text에 작성" />
+            <Label Content="라벨은 Content에 작성" />
+            <ProgressBar x:Name="PrgProgress" Minimum="0" Maximum="100" Value="30" Height="20" />
+            <ComboBox x:Name="CboFonts" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+            <TextBox x:Name="TxtTest2" Text="샘플" />
+            <TextBlock Text="라벨" />
+            <Label Content="라벨" />
+            <ProgressBar x:Name="PrgProgress2" Minimum="0" Maximum="100" Value="30" Width="100" Height="20" />
+        </StackPanel>
+
+        <DockPanel Grid.Row="0" Grid.Column="2">
+            <Button Content="Left" DockPanel.Dock="Left"></Button>
+            <Button Content="Right" DockPanel.Dock="Right"></Button>
+            <Button Content="Top" DockPanel.Dock="Top"></Button>
+            <Button Content="Bottom" DockPanel.Dock="Bottom"></Button>
+            <Button Content="Main" DockPanel.Dock="Bottom"></Button>
+        </DockPanel>
+
+        <WrapPanel Grid.Row="1" Grid.Column="0">
+            <Button Content="Test Button 1" />
+            <Button Content="Test Button 2" />
+            <Button Content="Test Button 3" />
+            <Button Content="Test Button 4" />
+        </WrapPanel>
+
+        <Canvas Grid.Row="1" Grid.Column="1">
+            <Button Content="A++" Canvas.Left="0" Canvas.Top="0"></Button>
+            <Button Content="B++" Canvas.Right="10" Canvas.Top="10"></Button>
+            <Button Content="C++" Canvas.Left="20" Canvas.Top="40"></Button>
+            <Button Content="D++" Canvas.Right="20" Canvas.Bottom="10"></Button>
+        </Canvas>
+
+        <Button x:Name="BtnCheck" Content="체크" Grid.Row="2" Grid.Column="2"
+                Margin="10"
+                Click="BtnCheck_Click"/>
+    </Grid>
+</Window>

@@ -1,0 +1,46 @@
+﻿<Window x:Class="WpfStudyApp04.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfStudyApp04"
+        mc:Ignorable="d"
+        Title="데이터바인딩" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <!-- 그리드 정의 종료 -->
+                
+        <!-- 컨트롤 구성 시작-->
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <ComboBox x:Name="CboFixedData">
+                <ComboBoxItem Content="망고" />
+                <ComboBoxItem Content="망고스틴" />
+                <ComboBoxItem Content="애플망고" />
+                <ComboBoxItem Content="마하차녹망고" />
+            </ComboBox>
+            <ComboBox x:Name="CboCollection" />
+
+            <ComboBox x:Name="CboFruits" ItemsSource="{Binding fruitItems}" />
+
+            <ComboBox x:Name="CboCountries" ItemsSource="{Binding countryItems}" 
+                      DisplayMemberPath="Value"
+                      SelectedValuePath="Key" SelectionChanged="CboCountries_SelectionChanged"/>
+            <Label Content="MySQL Data (BookRentalShop)" />
+            <ComboBox x:Name="CboDivision" ItemsSource="{Binding}"
+                      DisplayMemberPath="Value"
+                      SelectedValuePath="Key"/>
+        </StackPanel>
+        
+    </Grid>
+</Window>

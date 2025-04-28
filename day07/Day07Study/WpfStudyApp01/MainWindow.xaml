@@ -1,0 +1,12 @@
+﻿<Window x:Class="WpfStudyApp01.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfStudyApp01"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="600">
+    <Grid Margin="-14,0,-11,-16">
+        <Button x:Name="BtnCheck" Content="체크" HorizontalAlignment="Center" Margin="0,91,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="BtnCheck_Click" RenderTransformOrigin="-0.61,-1.408"/>
+    </Grid>
+</Window>
