@@ -211,6 +211,7 @@ IoT 개발자 C#/WinApp 리포지토리 2025
     - ReadOnly : 입력을 가능 여부, true는 입력불가
     - **TextChanged** : 글자가 변경되면 발생하는 이벤트
     - **KeyPress** : 키보드 입력이 생기면 발생하는 이벤트
+    - PasswordChar : 들어가는 텍스트를 암호처럼 숨길 때 사용. ㅁ+한자키 특수문자 ● 사용
 
 - `ComboBox` : 여러개 중 아이템을 선택하는 컨트롤
     - 보통 Cbo~ 로 시작
@@ -910,17 +911,75 @@ IoT 개발자 C#/WinApp 리포지토리 2025
         - DB연결객체 : MySQLConnection
         - 명령실행객체 : MySQLCommand(쿼리문 실행)
         - 실행 결과 리더 객체 : MySQLDataReader(쿼리 결과 데이터)
-        - 트랜잭션 객체 : 옵션. 트랜잭션 처리시 필요
+        - 트랜잭션 객체 : 옵션. 트랜잭션 (INSERT, UPDATE, DELETE 쿼리)처리시 필요
 
     <img src="./image/cs0016.png" width="600">
 
 
 ## 8일차
-- 네비게이션
-    - 화면 전환
+- 데이터베이스 데이터 바인딩 - [소스](./day08/Day08Study/WpfStudyApp01/MainWindow.xaml.cs)
+    - Xaml Binding 방식
 
-- 컨트롤 디자인, 리소스
-    - 
+- 네비게이션 - [소스](./day08/Day08Study/WpfStudyApp02/MainWindow.xaml)
+    - 화면 페이지 전환
+    - 메뉴 클릭으로 화면 전환
+    - Window, Page 컨트롤
+        - Window : Main
+        - Page : Sub
+    - NavigationService 사용
+    - NavigationuIVisibility 속성
+
+- 벡터 디자인, 비트맵 디자인 - [소스](./day08/Day08Study/WpfStudyApp03/MainWindow.xaml)
+    - 이미지는 속성 > 빌드 작업 > 리소스 선택
+    - 출력 디렉토리로 복사 > 복사 안 함 선택
+    - WPF Rectangle, Ellipse, Path등은 전부 벡터이미지
+
+- 컨트롤 디자인, 리소스 - [소스](./day08/Day08Study/WpfStudyApp04/MainWindow.xaml)
+    - WPF는 컨트롤 디자인 마음대로 변경 가능
+    - 리소스 : 컨트롤의 공유화
+        - App.xaml Application.Resources 에 필요한 컨트롤 디자인 정의
+        - 각 Window, Page.xaml에 사용
+        - Application.Resource에 선언한 리소스 > StaticResource
+
+    - ResourceDictionary - [소스](./day08/Day08Study/WpfStudyApp04/App.xaml)
+        - App.xaml 리소스를 계속 추가하면 유지보수 어려워짐. 대안으로 리소스 사전 생성
+    - 참조 깃허브 - https://github.com/StanislawSwierc/WpfThemesCollection
+
+    <img src="./image/cs0019.png" width="600">
+
+### MahApps.Metro 프레임워크
+- 공식사이트 - https://mahapps.com/
+    - 최소한 노력으로 Metro UI.Modern UI를 적용시킬 수 있는 프레임워크
+    - Metro UI, Modern UI - MS에서 시작한 디자인 스타일
+    - 깔끔하고 입체감을 최소화
+
+- 사용법 - [소스](./day08/Day08Study/WpfStudyApp05/MainWindow.xaml)
+    1. NuGet 패키지 관리 >
+        - MahApps.Metro
+        - MahApps.Metro.IconPacks 설치
+    2. https://github.com/MahApps/MahApps.Metro/releases
+        - MahApps.Metro.Demo-v2.4.10-rc0001.zip 다운로드
+    3. https://github.com/MahApps/IconPacks.Browser
+        - IconPacks.Browser-net8-v2.0.0.zip 다운로드
+    4. App.xaml에 필요한 리소스 코드 복붙
+    5. MainWindow.xaml.cs
+        - Window -> MetroWindow 로 변경
+    6. MainWindow.xaml
+        - mah 네임스페이스 추가
+        - Window -> mah.MetroWindow 로 변경
+
+    7. 실행결과
+
+        <img src="./image/cs0020.png" width="600">
+
+    8. Theme - Light, Dark 2개
+    9. Accent - Amber ~ Yellow 총 23개
+
+- 연습 예제
+    - MahApps.Metro.Demo를 확인하면서 컨트롤 추가
+    - MahApps.Metro Github 소스 확인 필요
+    
+    <img src="./image/cs0021.png" width="600">
 
 - MVVM 디자인 패턴
 

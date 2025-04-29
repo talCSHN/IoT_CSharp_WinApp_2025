@@ -1,0 +1,105 @@
+﻿<mah:MetroWindow x:Class="WpfStudyApp05.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:local="clr-namespace:WpfStudyApp05"
+    mc:Ignorable="d"
+    Title="MahApps.Metro sample" Height="350" Width="600" Icon="/Github.png">
+    <mah:MetroWindow.IconTemplate>
+        <DataTemplate>
+            <iconPacks:PackIconJamIcons Kind="Github" Margin="10,7,0,0" Foreground="White" />
+        </DataTemplate>
+    </mah:MetroWindow.IconTemplate>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Grid.Row="1" Grid.Column="1" Margin="5" Header="Control1">
+            <Grid Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Content="이름 : " 
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center" />
+                <!-- 한글 입력 기본으로 InputMethod.PreferredImeState="On" InputMethod.PreferredImeConversionMode="Native" -->
+                <!-- mah:TextBoxHelper.UseFloatingWatermark="True" -->
+                <TextBox Grid.Row="0" Grid.Column="1" x:Name="TxtName1" Margin="2"
+                         InputMethod.PreferredImeState="On"
+                         InputMethod.PreferredImeConversionMode="Native"
+                         mah:TextBoxHelper.AutoWatermark="True"
+                         mah:TextBoxHelper.Watermark="이름 입력"
+                         mah:TextBoxHelper.ClearTextButton="True" />
+                <Label Grid.Row="1" Grid.Column="0" Content="성별 : " 
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center" />
+                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="2">
+                    <RadioButton Content="남자" Margin="5,0" IsChecked="True" Style="{StaticResource MahApps.Styles.RadioButton}"/>
+                    <RadioButton Content="여자" Margin="5,0" />
+                </StackPanel>
+
+                <Label Grid.Row="2" Grid.Column="0" Content="암호 : " 
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center" />
+
+                <PasswordBox Grid.Row="2" Grid.Column="1" x:Name="TxtPassword" Password="12345" Margin="2" 
+                             Style="{StaticResource MahApps.Styles.PasswordBox.Button.Revealed}" />
+
+                <Label Grid.Row="3" Grid.Column="0" Content="나이 : " 
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center" />
+                <mah:NumericUpDown Grid.Row="3" Grid.Column="1" Margin="2"
+                                   Minimum="10" Maximum="90" Value="20"
+                                   mah:TextBoxHelper.ClearTextButton="True"/>
+                <Label Grid.Row="4" Grid.Column="0" Content="취미 : " 
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center" />
+                <ComboBox Grid.Row="4" Grid.Column="1" Margin="2"
+                          mah:TextBoxHelper.ClearTextButton="True"
+                          mah:ComboBoxHelper.CharacterCasing="Upper">
+                    <ComboBoxItem Content="Cycle" />
+                    <ComboBoxItem Content="Weight Training" />
+                    <ComboBoxItem Content="Climbing" />
+                    <ComboBoxItem Content="Marathon" />
+                </ComboBox>
+
+                <StackPanel Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal"
+                            HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Width="90" Content="Save" Margin="0,0,5,0"
+                            Background="{StaticResource MahApps.Brushes.Accent}"/>
+                    <Button Width="90" Content="Cancel" />
+                </StackPanel>
+
+                <StackPanel Grid.Row="5" Grid.Column="1" Grid.RowSpan="2"></StackPanel>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Row="1" Grid.Column="2" Margin="5" Header="Control2"></GroupBox>
+
+
+    </Grid>
+</mah:MetroWindow>

@@ -1,0 +1,33 @@
+﻿<Window x:Class="WpfStudyApp01.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfStudyApp01"
+        mc:Ignorable="d"
+        Title="데이터바인딩(Xaml Binding)" Height="350" Width="600"
+        Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        
+        <!-- UI컨트롤 구성 -->
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Label Content="MySQL Data(BookRentalShop)" />
+            <ComboBox x:Name="CboDivision" ItemsSource="{Binding divisionItems}"
+                      DisplayMemberPath="Value"
+                      SelectedValuePath="Key" />
+        </StackPanel>
+
+    </Grid>
+</Window>
