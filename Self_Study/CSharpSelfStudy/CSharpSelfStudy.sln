@@ -45,6 +45,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ch04_Operator_overload", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ch04_explicit", "Ch04_explicit\Ch04_explicit.csproj", "{ACE34AB9-BF10-4575-90D6-7046EE69FE76}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ch04_Nested_Class", "Ch04_Nested_Class\Ch04_Nested_Class.csproj", "{76CA3F83-B8CB-4853-AFF3-FE36A1D66907}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ch04_Abstract_Class", "Ch04_Abstract_Class\Ch04_Abstract_Class.csproj", "{0D1A47C4-D1FA-4E87-BD7D-0ED50EF43E4D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +139,14 @@ Global
 		{ACE34AB9-BF10-4575-90D6-7046EE69FE76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACE34AB9-BF10-4575-90D6-7046EE69FE76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACE34AB9-BF10-4575-90D6-7046EE69FE76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76CA3F83-B8CB-4853-AFF3-FE36A1D66907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76CA3F83-B8CB-4853-AFF3-FE36A1D66907}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76CA3F83-B8CB-4853-AFF3-FE36A1D66907}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76CA3F83-B8CB-4853-AFF3-FE36A1D66907}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D1A47C4-D1FA-4E87-BD7D-0ED50EF43E4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D1A47C4-D1FA-4E87-BD7D-0ED50EF43E4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D1A47C4-D1FA-4E87-BD7D-0ED50EF43E4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D1A47C4-D1FA-4E87-BD7D-0ED50EF43E4D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
