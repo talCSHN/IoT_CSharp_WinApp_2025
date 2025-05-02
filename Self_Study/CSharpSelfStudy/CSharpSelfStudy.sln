@@ -61,6 +61,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ch04_Interface_Callback", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ch04_Interface_Array_Sort", "Ch04_Interface_Array_Sort\Ch04_Interface_Array_Sort.csproj", "{602ABD0C-7B7A-4E67-A289-35225DE45468}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ch04_Interface_IEnumerable", "Ch04_Interface_IEnumerable\Ch04_Interface_IEnumerable.csproj", "{E9DA31AA-D9C3-466B-A997-8896717E940B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -183,6 +185,10 @@ Global
 		{602ABD0C-7B7A-4E67-A289-35225DE45468}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{602ABD0C-7B7A-4E67-A289-35225DE45468}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{602ABD0C-7B7A-4E67-A289-35225DE45468}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9DA31AA-D9C3-466B-A997-8896717E940B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9DA31AA-D9C3-466B-A997-8896717E940B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9DA31AA-D9C3-466B-A997-8896717E940B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9DA31AA-D9C3-466B-A997-8896717E940B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
