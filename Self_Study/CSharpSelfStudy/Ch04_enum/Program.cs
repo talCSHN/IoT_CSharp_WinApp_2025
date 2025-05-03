@@ -18,6 +18,10 @@
         {
             Sunday = 1, Monday = 2, Tuesday = 4, Wednesday = 8, Thursday = 16, Friday = 32, Saturday = 64
         }
+        enum CalcType
+        {
+            Add, Minus, Multiply, Divide
+        }
         static void Main(string[] args)
         {
             Days today = Days.Sunday;
@@ -34,6 +38,24 @@
             Console.WriteLine(workingDays.HasFlag(today2));
 
             Console.WriteLine(workingDays);
+
+            int Calc(CalcType opType, int operand1, int operand2)
+            {
+                switch (opType)
+                {
+                    case CalcType.Add:
+                        return operand1 + operand2;
+                    case CalcType.Minus:
+                        return operand1 - operand2;
+                    case CalcType.Multiply:
+                        return operand1 * operand2;
+                    case CalcType.Divide:
+                        return operand1 / operand2;
+                }
+                return 0;
+                
+            }
+            Calc(CalcType.Add, 10, 5);  // enum 인스턴스로 전달
         }
     }
 }
