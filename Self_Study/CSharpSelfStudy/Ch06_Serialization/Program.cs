@@ -71,6 +71,12 @@ namespace Ch06_Serialization
             sw.WriteLine(32000);
             sw.Flush();
 
+            ms2.Position = 0;   // 읽기 작업 전 항상 Position 0으로 되돌리는 것 잊으면 안 됨
+
+            StreamReader sr = new StreamReader(ms2, Encoding.UTF8);
+            string txt = sr.ReadToEnd();
+            Console.WriteLine(txt);
+
 
         }
     }
